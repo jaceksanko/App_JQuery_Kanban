@@ -72,9 +72,9 @@ $(function () {
         }
     }
 
-    function Board(name) {
+    function Board(name, divPalaceBoard) {
         this.name = name;
-        this.$element = $('#board .column-container');
+        this.$element = $(divPalaceBoard); //#board .column-container
     }
 
     Board.prototype = {
@@ -91,7 +91,7 @@ $(function () {
         },
         $element: $('#board .column-container')
     } */
-    
+    var board = new Board('Kanban Board', '#board .column-container');
 
     function initSortable() {
         $('.column-card-list').sortable({
@@ -106,14 +106,7 @@ $(function () {
         board.addColumn(column);
     });
 
-    var $newBoard = $('<button>').addClass('btn-board').text('New board');
-    var divBoard =  $('.board');
-    divBoard.append($newBoard);
-
-    $newBoard.click(function() {
-    var board = new Board('Kanban Board');
-
-        // CREATING COLUMNS
+            // CREATING COLUMNS
     var todoColumn = new Column('To do');
     var doingColumn = new Column('Doing');
     var doneColumn = new Column('Done');
@@ -130,6 +123,30 @@ $(function () {
     // ADDING CARDS TO COLUMNS
     todoColumn.addCard(card1);
     doingColumn.addCard(card2);
-    })
 
+
+    var board2 = new Board('Kanban Boad 2', '#board2 .column-container');
+
+    $('.create-column2').click(function(){
+        var name = prompt('Enter a column name');
+        var column = new Column(name);
+        board2.addColumn(column);
+    });
+
+    var todoColumn2 = new Column('To do');
+    var doingColumn2 = new Column('Doing');
+    var doneColumn2 = new Column('Done');
+
+    // ADDING COLUMNS TO THE BOARD
+    board2.addColumn(todoColumn2);
+    board2.addColumn(doingColumn2);
+    board2.addColumn(doneColumn2);
+
+    // CREATING CARDS
+    var card11 = new Card('New task');
+    var card22 = new Card('Create kanban boards');
+
+    // ADDING CARDS TO COLUMNS
+    todoColumn2.addCard(card11);
+    doingColumn2.addCard(card22);
 })
