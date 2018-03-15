@@ -1,0 +1,32 @@
+.column-container {
+    background-color: bisque;
+    display: flex;
+    
+}
+
+.column {
+    flex: 1 auto;
+    margin: 10px;
+    background-color: grey;
+    min-height: 500px;
+    width: 33%;
+}
+
+li.card {
+    list-style-type: none;
+    background-color: goldenrod;
+    display: flex;
+    margin: 5px;
+}
+
+.column-card-list {
+    list-style-type: none;
+    padding: 10px;
+}
+
+button {
+    margin: 5px;
+}
+h2 {
+    margin-left: 20px;
+}
